@@ -6,7 +6,7 @@
 /*   By: osajide <osajide@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/03 20:01:06 by osajide           #+#    #+#             */
-/*   Updated: 2023/06/19 20:01:01 by osajide          ###   ########.fr       */
+/*   Updated: 2023/06/20 13:30:01 by osajide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ typedef struct s_g_general
 	t_env	*env;
 	int		nbr_cmd;
 	int		sig_flag;
+	int		hrdc_fd;
 	int		exit_status;
 }	t_general;
 
