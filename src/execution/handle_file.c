@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   handle_file.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayakoubi <ayakoubi@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: osajide <osajide@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 15:20:45 by ayakoubi          #+#    #+#             */
-/*   Updated: 2023/06/19 22:45:06 by ayakoubi         ###   ########.fr       */
+/*   Updated: 2023/06/20 12:43:44 by osajide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ int	open_files(t_cmd cmd)
 		{
 			dup2(cmd.h_fd[0], 0);
 			close(cmd.h_fd[0]);
+			close(cmd.h_fd[1]);
 		}
 		cmd.redir = cmd.redir->next;
 	}

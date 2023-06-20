@@ -6,7 +6,7 @@
 /*   By: osajide <osajide@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 15:03:24 by ayakoubi          #+#    #+#             */
-/*   Updated: 2023/06/19 19:55:02 by osajide          ###   ########.fr       */
+/*   Updated: 2023/06/20 09:26:01 by osajide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ void	execute_cmd(t_cmd *cmd)
 		free(cmd_exec);
 		free_2d_array(new_env);
 		free_2d_array(ar);
-		exit(1);
+		exit(126);
 	}
 }
