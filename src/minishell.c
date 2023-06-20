@@ -6,7 +6,7 @@
 /*   By: osajide <osajide@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/28 13:33:01 by ayakoubi          #+#    #+#             */
-/*   Updated: 2023/06/20 13:37:14 by osajide          ###   ########.fr       */
+/*   Updated: 2023/06/20 15:30:41 by osajide          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 void	handle_sigint(int sig)
 {
 	ft_printf(1, "\n");
-	if (g_general.hrdc_fd >= 0)
+	if (g_general.sig_flag == 2)
 	{
-		close(g_general.hrdc_fd);
-		g_general.hrdc_fd = -2;
-		g_general.exit_status = 130;
+		close(0);
+		g_general.hrdc = -2;
+		g_general.exit_status = 1;
 		return ;
 	}
 	if (!g_general.sig_flag)
@@ -52,12 +52,12 @@ void	loop_on_input(char *line, t_list **lst)
 				{
 					cmd = fill_struct_cmd(*lst);
 					clear_lst(*lst);
-					if (g_general.hrdc_fd != -2)
+					if (g_general.hrdc != -2)
 					{
 						cmd = expander(cmd);
 						execution_commands(cmd);
-						clear_cmd(cmd);
 					}
+					clear_cmd(cmd);
 				}
 			}
 		}
@@ -70,7 +70,7 @@ void	minishell(t_list **lst)
 
 	while (1)
 	{
-		g_general.hrdc_fd = -1;
+		g_general.hrdc = -1;
 		g_general.sig_flag = 0;
 		*lst = NULL;
 		line = display_prompt();
